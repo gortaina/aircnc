@@ -1,0 +1,490 @@
+############################################################################
+############################################################################
+############################################################################
+
+DIA 01 - setup do ambinte
+
+#######################
+Dia 02 - criando o backend
+#######################
+
+aircnc\
+aircnc\backend
+
+https://chocolatey.org/
+//choco uninstall nodejs.install
+choco install nodejs.install --version=10.16.3
+choco install yarn --version=1.17.3
+npm 6.9.0
+
+vscode: dracula official, material icon theme, rocketseatReactJS,
+rocketseatReactNative, 
+https://github.com/tonsky/FiraCode
+
+VSCODE - ctrl+shitp+p
+open settings.json
+
+"editor.fontFamily": "Fira Code",
+"editor.fontLigatures": true
+
+ yarn init -y
+ 
+VSCODE - ctrl+shitp+p -  install code command(mac and linux)
+
+no terminal do vscode
+yarn add express
+
+vai gerar
+-yarn.lock - que é cache
+-node_modules - pasta com o código das dependências
+instalar json viewer no chrome
+// reinicia o node automaticamente a cada alteraçao de código
+yarn add nodemon -D
+O argumento -D acima é para informar que o pacote é de Dev, não
+vai para produção, olha o packagen.json, ele criou o 
+"devDependencies"
+add o script em package.json
+	
+	
+{
+  "name": "backend",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "scripts" :{
+    "dev" : "nodemon src/server.js"
+  }
+  "dependencies": {
+    "express": "^4.17.1"
+  },
+  "devDependencies": {
+    "nodemon": "^1.19.3"
+  }
+}
+	
+no terminal execute
+yarn dev
+não precisa mais do node, massa né
+
+instale o insomnia.rest no chrome
+
+usar a query do mongodb
+procurar "Sequelize" no rocketseat.com.bring
+mongodb oferece um serviço gratuito de armazenamento, 500Mb!
+Crie uma conta em
+https://www.mongodb.com/cloud/atlas
+
+Custo de manutenção - mongoDb - 60 a 100 trumps mensal
+create a cluster, eu criei o DBOmni
+ add a user com read/write
+ em network access deixe em whitelist
+ vá em atlas/cluster/connect/connect to app/use a versão do node que funcione 3 ou 2
+ copie a string de conexão
+ mongodb+srv://<username>:<password>@dbomni-txagc.mongodb.net/admin?retryWrites=true&w=majority
+ 
+ 
+ instale a dependência do mongodb 1.15.2
+ facilita o trabalhao com os dados do mongodb
+ yarn add mongoose
+ 
+ selecione uma palavra e crtl+d
+ vai permitir editar as duas ao mesmo tempo
+ 
+//troque os user/password/nomedo banco de admin para semana09
+mongoose.connect('mongodb+srv://user:password@dbomni-txagc.mongodb.net/nomedobanco?retryWrites=true&w=majority',{
+    useNewUrlParser: true,
+    useUnifiedTopology: true,
+});
+ 
+// define a rota -  GET, POST, PUT, DELETE
+// req.query - GET - acessar com Query params - para filtros
+// req.params - PUT - acessar com Path params - para edição, delete
+// req.body - POST - acessar CORPO(Body) da requisição - para criação, edição
+
+porta de acesso do mongodb é a 27017
+se estiver dentro de um proxy, acesse
+http://portquiz.net:27017
+
+### resultado ####
+Outgoing port tester
+This server listens on all TCP ports, allowing you to test any outbound TCP port.
+You have reached this page on port 27017.
+Your network allows you to use this port. (Assuming that your network is not doing advanced traffic filtering.)
+Network service: unknown
+###################
+
+não tem view pq é rest com react native, não tem html.
+cria as pastas controllers, models
+
+Pessoal do ruby tem mania de colocar regra de negócios
+dentro do model! Meu PAI! fact model ao extremo kkkk
+
+no controller vamos incluir regras de negocios
+mas a medida que cresce deve ser retirado para um desing patterns
+repository pattern, service patterns
+// npm run dev ou yarn dev
+
+para trabalhar com imagens, adicione a lib multer
+O express não entede multiplatform do http
+yarn add multer
+crie a pasta uploads na raiz do projeto
+ 
+ old 7
+ 
+Quem estiver enfrentando problemas na conexão do aplicativo do Expo, problemas com imagens aparecendo no mobile, ou mais algumas outras situações, criamos um guia com possíveis soluções e estaremos atualizando ao longo dessa semana: https://github.com/Rocketse...
+Para habilitar o Live Reload no dispositivo físico que atualiza automaticamente assim que o código é salvo, basta chacoalhar seu device que ele abrirá o menu de desenvolvedor.
+ 
+export default function Login() {
+  return (
+    <View style={styles.container}>
+      <Image source={logo}></Image>
+
+      <View style={styles.form}>
+        <Text style={styles.label}>SEU E-MAIL</Text>
+        <TextInput
+          style={styles.input}
+          placeholder="Seu e-mail"
+          placeholderTextColor="#999"
+          keyboardType="email-address"
+          autoCapitalize="none"
+          autoCorrect={false}
+        ></TextInput>
+      </View>
+    </View>
+  );
+}
+
+#######################
+Dia 03 - criando o frontend
+#######################
+
+abra um janela do powershell como admin 
+criando o frontend
+dia_03\aircnc
+
+no vídeo o diretório padrão é o www/semana-omnistack-9/aulas/
+
+criando projeto react, diga o nome da pasta, no caso frontend
+yarn create react-app frontend
+ou via npx
+npx create-react frontend
+
+ele demora uns  5 minutos para criar o projeto
+
+Que evolução dos frameworks JAVASCRIPTS! Quando comecei há mais de 15 anos, o melhor que tinha era o framework da Yahoo, pipes! 
+Dei-me uma chance de aprender e curti muito! Obrigado 3x! #Rockseat #100DaysOfCode
+#543 KKKKK
+
+depos de criar
+code .
+cd ..
+cd .\backend
+yarn dev
+minimize a janela e volte para o vscode
+no vscode abra um terminal interno e rode o react
+###yarn start dentro do da pasta ./frontend
+cd \.frontend
+yarn start
+Adonis - monolitico
+express pode fugir do padrão - microserviços
+
+jogo - flutter, não usar node.js
+elixir no lugar do node.js
+produtividade de forma enxuta
+impossível node no back, view no front, mobile- fluter
+expo roda via browser! PWA ???
+hooks, usar!
+mongoose obriga a fazer o schema antes!
+
+#delicinha
+opinado -> framework que te obriga a criar uma determinada strutura
+sequelize -> sql para sqlite, 
+firebase -> não é lá essas coisas não
+instale a extensão #colorize no vscode em extensions
+
+add no settings.json, as linhas abaixo
+{
+    "workbench.colorTheme": "Dracula",
+    "workbench.iconTheme": "material-icon-theme",
+    "editor.fontFamily": "Fira Code",
+    "editor.fontLigatures": true,
+    "editor.tabSize": 2,
+
+    "emmet.syntaxProfiles": {
+      "javascript": "jsx",
+    },
+    "emmet.includeLanguages": {
+      "javascript": "javascriptreact",
+    }
+}
+
+tente alt+seta para cima/baixo
+
+instale a extesão color High Light no vscode
+
+para trabalhar com API´s o Axios é melhor que o Fetch
+abra o terminal com ctrl+'
+yarn add axios
+
+na pasta services fica os *.js que falam com API
+
+
+Quem estiver enfrentando problemas na conexão do aplicativo do Expo
+, problemas com imagens aparecendo no mobile, ou mais algumas 
+outras situações, criamos um guia com possíveis soluções e 
+estaremos atualizando ao longo dessa semana: 
+https://github.com/Rocketse...
+Para habilitar o Live Reload no dispositivo físico que atualiza 
+automaticamente assim que o código é salvo, 
+basta chacoalhar seu device que ele abrirá o
+menu de desenvolvedor.
+
+troque isso
+function handleEmailChange(event){
+    setEmail(event.target.value);
+}
+
+por isso
+onChange={event => setEmail(event.target.value) }
+
+e isso
+api.post('/sessions',{
+      email: email
+})
+
+por isso
+
+api.post('/sessions', { email })
+
+o erro abaixo é do backend
+
+Access to XMLHttpRequest at 'http://localhost:3333/sessions'
+ from origin 'http://localhost:3000' 
+ has been blocked by CORS policy: 
+ Response to preflight request doesn't pass 
+ access control check: No 'Access-Control-Allow-Origin'
+ header is present on the requested resource.
+ 
+ instale a dependencia CORS no BACKEND!!!!! NO BACKEND!!!
+ abrar o backend no vscode e no terminal
+ yarn add cors
+
+ para o sistema de rotas instale a depenencia,ela é a mais
+ famosinha na web 
+ yarn add react-router-dom
+ 
+####################### 
+dia 04 criando o mobo - mobile - omnistack
+#######################
+
+dia_04\aircnc\
+cd .\backend
+yarn dev
+cd \.frontend
+yarn start
+
+
+
+React Native é javascript para mobile
+instale o EXPO no seu celular - para permitir a comunicação com o mobo
+
+npm install -g expo-cli
+
+Demorar um bocado para instalar, quase 10 minutos
+
+inicie o projeto dando o nome da pasta, no caso "mobile"
+
+expo init mobile
+
+- [ ] Day 1
+- [ ] Day 2
+- [ ] Day 3
+- [ ] Day 4
+- [ ] Day 5
+- [ ] Day 6
+- [ ] Day 7
+- [ ] Day 8
+- [ ] Day 9
+- [ ] Day 10
+
+
+
+escolha a opção BLANK
+digite o nome da app - "AirCnC"
+Escolha yes para usar o Yarn
+o expo vai criar o projeto mobile
+depois de instalar
+cd .\mobile
+yarn start
+
+baixe para seu celular baixe o app expo ou expo client
+scanneie o QR-CODE do http://localhost:19002
+
+abra outro terminal, powershell, vá para a pasta mobile
+dia_04\aircnc\mobile
+code .
+
+troque 
+<Text>Open up App.js to start working on your app!</Text>
+para
+<Text>Mozão! TE AMO!!!</Text>
+
+caso queira utilizar um emulador de android
+https://www.genymotion.com/fun-zone/
+
+melhor sempre utilizar o aparelho
+
+caso não queira utilizar o expo, vá em
+https://docs.rockseat.dev
+
+divida a tela do locallhost do expo em duas, só clicar no canto
+direito, onte há dois quadrados sobrepostos
+
+na parte de styles já tem imbutido as tags abaixo,
+não precisa incluí-las
+display: 'flex',
+flexDirection = "column"
+
+Crie a pasta src dentro de mobile
+e lá crie 3 arquivos que são funcionalidades das telas
+Login.js
+List.js
+Book.js
+
+Crie a navegação, instale o react navigation, no terminal
+vscode, acesse a pasta mobile e digite:
+yarn add react-navigation
+
+
+
+documentação
+https://reactnavigation.org/
+
+createSwitchNavigator
+só vai para uma tela, não volta
+createStackNavigator
+cria uma pilha de telas, o usuário pode voltar
+
+
+Se der o erro abaixo é porque vc esqueceu de instalar
+react-native-gesture-handler
+
+jest-haste-map: watch error:
+  Error: EBUSY: resource busy or locked, open 'J:\PROFESSIONAL\curso_2019\github\ArquiteturaJoel\semana-omnistack-9\dia_04\aircnc\mobile\node_modules\hoist-non-react-statics\dist\hoist-non-react-statics.min.js'
+    at Object.openSync (fs.js:443:3)
+    at Object.readFileSync (fs.js:343:35)
+    at Object.<anonymous> (J:\PROFESSIONAL\curso_2019\github\ArquiteturaJoel\semana-omnistack-9\dia_04\aircnc\mobile\node_modules\jest-haste-map\build\worker.js:119:55)
+    at Generator.next (<anonymous>)
+    at step (J:\PROFESSIONAL\curso_2019\github\ArquiteturaJoel\semana-omnistack-9\dia_04\aircnc\mobile\node_modules\jest-haste-map\build\worker.js:202:30)
+    at J:\PROFESSIONAL\curso_2019\github\ArquiteturaJoel\semana-omnistack-9\dia_04\aircnc\mobile\node_modules\jest-haste-map\build\worker.js:221:14
+    at new Promise (<anonymous>)
+    at Object.<anonymous> (J:\PROFESSIONAL\curso_2019\github\ArquiteturaJoel\semana-omnistack-9\dia_04\aircnc\mobile\node_modules\jest-haste-map\build\worker.js:199:12)
+    at Object.getSha1 (J:\PROFESSIONAL\curso_2019\github\ArquiteturaJoel\semana-omnistack-9\dia_04\aircnc\mobile\node_modules\jest-haste-map\build\worker.js:134:18)
+    at HasteMap._processFile (J:\PROFESSIONAL\curso_2019\github\ArquiteturaJoel\semana-omnistack-9\dia_04\aircnc\mobile\node_modules\jest-haste-map\build\index.js:675:12)
+
+vá para o terminala, pasta mobile e digite:
+expo install react-native-gesture-handler react-native-reanimated
+	
+se der erro, feche a janela powershell do yarn start e abra de novo
+com o yarn start
+
+Lembre-se sempre de importar as tags que serão utilizadas
+nas funções: View, Text.
+
+Ferramentas para edição de imagens mobile:
+sketch, Figma, Zepelin, XD
+elas fazem o resizing automático com várias imagens.
+
+Quando terminar a página de login, sobre design, comunique com a API
+Para comunicar a aplicação com a API de backend, user o axios,
+na pasta mobile, digite:
+yarn add axios
+
+esse ip´s podem mudar!!!
+copie o ip do expo 192.168.1.5:19002
+coloque no .\services\api.js do axios 192.168.1.3:3333
+
+em Login.jsp na tag TextInput, que é reactNative
+onChangeText={text => setEmail(text)}
+onChangeText={setEmail}
+
+Isso não funciona no frontend(reactjs)
+
+execute o contêiner do backend!!!
+dia_04\aircnc\backend
+abra outro powershell, acesse a pasta de backend e digite
+yarn dev
+
+
+AsyncStorage,banco de dados assincrono, demora para salvar!
+armazena no sqlite, no dispositivo.
+
+Trocar de 
+export default function SpotList(props) {
+<Text>{props.tech}</Text>
+
+para
+//export default function SpotList({ tech }) {
+<Text>{tech}</Text>
+
+Ajuda na simplificação
+
+
+####################### 
+dia 04 criando o mobo - mobile - omnistack
+#######################
+
+implementação do socket.io para sincronização
+
+dia_04\aircnc\
+cd .\backend
+yarn dev
+cd \.frontend
+yarn start
+
+Vá para o backend 
+dia_05\aircnc\backend>
+yarn dev
+
+ainda na pasta backend instale o socket.io
+yarn add socket.io
+
+vá para o frontend
+dia_05\aircnc\frontend>
+instale o socket.io client
+yarn add socket.io-client
+depois de instalar, execute o front end
+yarn start
+
+
+
+####################### 
+dia 05 tratamento de threads - mobile - omnistack
+#######################
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
