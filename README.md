@@ -12,7 +12,6 @@
 -Banco NoSQL: MondoDb
 
 
-
 Links para os projeto por timeline:
 
 - [] [Dia 01 Configuraçao do ambiente](https://github.com/gortaina/aircnc/enviroment.md)
