@@ -14,9 +14,9 @@
 
 Links para os projeto por timeline:
 
-- [] [Dia 01 Configuraçao do ambiente](https://github.com/gortaina/aircnc/enviroment.md)
+- [x] [Dia 01 Diário de Bordo e configuração de ambiente](https://github.com/gortaina/aircnc/Diario_de_Bordo_OmniStack_09.txt) 
 
-- [] [Dia 02 Backend - API Node](https://github.com/gortaina/aircnc/day02)
+- [x] [Dia 02 Backend - API Node](https://github.com/gortaina/aircnc/day02)
 
 - [] [App 03 Web - ReactJS](https://github.com/gortaina/aircnc/day03)
 
